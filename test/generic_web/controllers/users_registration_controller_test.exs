@@ -13,7 +13,9 @@ defmodule GenericWeb.UsersRegistrationControllerTest do
     end
 
     test "redirects if already logged in", %{conn: conn} do
-      conn = conn |> login_users(users_fixture()) |> get(Routes.users_registration_path(conn, :new))
+      conn =
+        conn |> login_users(users_fixture()) |> get(Routes.users_registration_path(conn, :new))
+
       assert redirected_to(conn) == "/"
     end
   end

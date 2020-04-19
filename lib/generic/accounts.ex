@@ -302,7 +302,11 @@ defmodule Generic.Accounts do
       when is_function(reset_password_url_fun, 1) do
     {encoded_token, users_token} = UsersToken.build_users_email_token(users, "reset_password")
     Repo.insert!(users_token)
-    UsersNotifier.deliver_reset_password_instructions(users, reset_password_url_fun.(encoded_token))
+
+    UsersNotifier.deliver_reset_password_instructions(
+      users,
+      reset_password_url_fun.(encoded_token)
+    )
   end
 
   @doc """

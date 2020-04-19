@@ -134,6 +134,7 @@ defmodule Generic.Accounts.UsersToken do
   end
 
   def users_and_contexts_query(users, [_ | _] = contexts) do
-    from t in Generic.Accounts.UsersToken, where: t.users_id == ^users.id and t.context in ^contexts
+    from t in Generic.Accounts.UsersToken,
+      where: t.users_id == ^users.id and t.context in ^contexts
   end
 end

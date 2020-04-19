@@ -8,6 +8,5 @@ defmodule Generic.Repo.Migrations.CreateThings do
 
       timestamps()
     end
-
   end
 end
